@@ -12,7 +12,7 @@ for i in range(10):
     cur = new
     
 '''
-
+''' Fibonacci Using Recursion
 count = 2
 
 def fibonacci(previous, current):
@@ -29,4 +29,14 @@ def fibonacci(previous, current):
 
 fibonacci(0, 1)
 
+'''
 
+# Finding N th Fibonacci Number
+
+def F(n):
+    if n <= 1 :
+        return 1
+    else:
+        return F(n - 1) + F(n - 2)
+
+print(F(7))
