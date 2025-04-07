@@ -42,3 +42,21 @@ for i in range(n):
     if not Swapped:
         break
 print(nums)
+
+
+''' Optimized Code
+for num in nums:
+    if num != 0:
+        nums[insert_pos] = num
+        insert_pos += 1
+
+# Fill remaining positions with 0
+for i in range(insert_pos, len(nums)):
+    nums[i] = 0
+
+print(nums)
+
+# Time complexity: O(n)
+
+# Space complexity: O(1)
+'''
