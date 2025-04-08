@@ -7,7 +7,10 @@ for i in range(n - 1):
     for j in range(i + 1, n):
         if my_array[j] < my_array[min_index]:
             min_index = j
-    min_value = my_array.pop(min_index)
-    my_array.insert(i, min_value)
+    #min_value = my_array.pop(min_index)
+    #my_array.insert(i, min_value)
+    # Insteading popping the lowest value from the array and inserting to the front.
+    # Lets swap with first value with lowest value index.
+    my_array[i], my_array[min_index] = my_array[min_index], my_array[i]
 
 print(my_array)
