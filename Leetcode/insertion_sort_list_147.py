@@ -28,3 +28,15 @@ Constraints:
 The number of nodes in the list is in the range [1, 5000].
 -5000 <= Node.val <= 5000
 '''
+
+head = [-1, 5, 3, 0, 4]
+n = len(head)
+
+for i in range(1, n):
+    insert_index = i
+    cur_value = head.pop(i)
+    for j in range(i - 1, -1, -1):
+        if head[j] > cur_value:
+            insert_index = j
+    head.insert(insert_index, cur_value)
+print(head)
