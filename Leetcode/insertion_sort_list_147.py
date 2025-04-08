@@ -40,3 +40,38 @@ for i in range(1, n):
             insert_index = j
     head.insert(insert_index, cur_value)
 print(head)
+
+'''
+However, for LeetCode Problem 147, this solution:
+
+Doesn’t apply directly — because the input is a singly linked list, not a Python list.
+
+In a singly linked list, you don’t have random access like pop(i) or insert(i, val).
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def insertionSortList(self, head: ListNode) -> ListNode:
+        dummy = ListNode(0)  # Dummy node for sorted part
+        curr = head
+
+        while curr:
+            prev = dummy
+            next_node = curr.next  # Save next
+
+            # Find where to insert the current node
+            while prev.next and prev.next.val < curr.val:
+                prev = prev.next
+
+            # Insert between prev and prev.next
+            curr.next = prev.next
+            prev.next = curr
+
+            curr = next_node
+
+        return dummy.next
+
+'''
