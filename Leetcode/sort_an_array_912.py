@@ -51,9 +51,14 @@ quicksort(nums)
 print(nums)
 
 ''' Leetcode Solution, but not passed all testcases
+# approach to concern , take random pivots.
+# what if we have n numbers with same value..?
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
         def partition(nums, low, high):
+            # Random pivot : can optimize code more
+            #pivot_index = random.randint(low, high)
+            #nums[pivot_index], nums[high] = nums[high], nums[pivot_index]
             pivot = nums[high]
             i = low - 1
             for j in range(low, high):
