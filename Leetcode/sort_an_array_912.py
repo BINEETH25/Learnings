@@ -24,3 +24,28 @@ Constraints:
 1 <= nums.length <= 5 * 104
 -5 * 104 <= nums[i] <= 5 * 104
 '''
+def partition(nums, low, high):
+    pivot = nums[high]
+    i = low - 1
+    
+    for j in range(low, high):
+        if nums[j] <= pivot:
+            i += 1
+            nums[i], nums[j] = nums[j], nums[i]
+        
+    nums[i+1], nums[high] = nums[high], nums[i + 1]
+    return i+1
+
+def quicksort(nums, low = 0, high = None):
+    if high is None:
+        high = len(nums) - 1
+    
+    if low < high:
+        pivot_index = partition(nums, low, high)
+        quicksort(nums, low, pivot_index-1)
+        quicksort(nums, pivot_index+1, high)
+
+nums = [5,1,1,2,0,0]
+
+quicksort(nums)
+print(nums)
