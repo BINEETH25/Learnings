@@ -45,3 +45,62 @@ def counting(nums):
 
 nums = [8, 1, 2, 2, 3]
 print(counting(nums))
+
+
+'''  Optimized  Solution
+def counting(nums):
+    count = [0] * 101  # Frequency array
+
+    for num in nums:
+        count[num] += 1
+
+    # Prefix sum: count[i] = number of elements < i
+    for i in range(1, 101):
+        count[i] += count[i - 1]
+
+    result = []
+    for num in nums:
+        result.append(0 if num == 0 else count[num - 1])
+
+    return result
+
+'''
+
+'''My Solution in Leetcode 
+
+from typing import List
+
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        new_arr = [0] * len(nums)
+        for i in range(len(nums)):
+            count = 0
+            for j in range(len(nums)):
+                if nums[j] < nums[i]:
+                    count += 1
+            new_arr[i] = count
+        return new_arr
+
+
+'''
+
+'''Best Solution with Optimization with consideration of Constraints
+from typing import List
+
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        count = [0] * 101  # since 0 <= nums[i] <= 100
+        for num in nums:
+            count[num] += 1
+        
+        # compute prefix sum
+        for i in range(1, 101):
+            count[i] += count[i - 1]
+        
+        result = []
+        for num in nums:
+            result.append(0 if num == 0 else count[num - 1])
+        
+        return result
+
+'''
