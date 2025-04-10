@@ -32,3 +32,16 @@ Constraints:
 2 <= nums.length <= 500
 0 <= nums[i] <= 100
 '''
+def counting(nums):
+    new_arr = [0] * len(nums)
+    for i in range(len(nums)):
+        count = 0
+        num = nums[i]
+        for j in range(len(nums)):
+            if nums[j] < num:
+                count += 1
+        new_arr[i] = count
+    return new_arr
+
+nums = [8, 1, 2, 2, 3]
+print(counting(nums))
