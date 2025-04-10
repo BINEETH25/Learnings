@@ -24,7 +24,6 @@ Constraints:
 1 <= nums.length <= 105
 0 <= nums[i] <= 109
 '''
-
 def radix(nums):
     max_val = max(nums)
     exp = 1
@@ -47,15 +46,57 @@ def radix(nums):
 
 def diff(nums):
     n = len(nums)
-    if n > 2:
+    if n > 1:
         cur_array = []
         for i in range(n-1):
             cur_val = nums[i+1] - nums[i]
             cur_array.append(cur_val)
         return max(cur_array)
-    else : 
+    else :
         return 0
 
 nums = [3, 6, 9, 1]
 radix(nums)
 print(diff(nums))
+
+
+''' My LeetCode Solution with Constraints
+class Solution:
+    def maximumGap(self, nums: List[int]) -> int:
+        def radix(nums):
+            max_val = max(nums)
+            exp = 1
+            radixArray = [[], [], [], [], [], [], [], [], [], []]
+
+            while max_val // exp > 0:
+                
+                while len(nums) > 0:
+                    val = nums.pop()
+                    radixIndex = (val // exp) % 10
+                    radixArray[radixIndex].append(val)
+                
+                for bucket in radixArray:
+                    while(len(bucket)) >= 1:
+                        val = bucket.pop()
+                        nums.append(val)
+                
+                exp *= 10 
+            return nums
+
+        def diff(nums):
+            n = len(nums)
+            if n > 1:
+                cur_array = []
+                for i in range(n-1):
+                    cur_val = nums[i+1] - nums[i]
+                    cur_array.append(cur_val)
+                return max(cur_array)
+            else : 
+                return 0
+        
+        sorted_nums = radix(nums.copy())
+        return diff(sorted_nums)
+
+sol = Solution()
+'''
+# TO DO : Needs Optimiization and Can Perform Best Time Complexity Next time.
