@@ -29,7 +29,7 @@ for i in range(len(array)):
         lowest_num = array[i]
 
 print(lowest_num)
-'''
+
 print("--Bubble Sort--")
 array1 = [12, 16, 25, 28, 2, 10, 6]
 n = len(array1)
@@ -42,3 +42,14 @@ for i in range(n-1):
     if not Swapped:
         break
 print(array1)
+'''
+print("----Selection SOrt----")
+array2 = [12, 16, 25, 28, 2, 10, 6]
+n = len(array2)
+for i in range(n-1):
+    min_index = i
+    for j in range(i+1, n):
+        if array2[j] < array2[min_index]:
+            min_index = j
+    array2[i], array2[min_index] = array2[min_index], array2[i]
+print(array2)
