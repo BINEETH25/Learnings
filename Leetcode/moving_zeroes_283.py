@@ -24,6 +24,7 @@ Constraints:
 
 Follow up: Could you minimize the total number of operations done?
 '''
+'''
 
 nums = [0, 1, 0, 3, 12]
 #nums = [0]
@@ -38,7 +39,7 @@ for i in range(n):
     if not Swapped:
         break
 print(nums)
-
+'''
 
 ''' Optimized Code
 for num in nums:
@@ -56,3 +57,13 @@ print(nums)
 
 # Space complexity: O(1)
 '''
+def movingZeroes(nums):
+    right = -1
+    n = len(nums)
+    for i in range(-1,-n-1, -1):
+        if nums[i] != 0:
+            nums[i], nums[right] = nums[right], nums[i]
+            right -= 1
+    return nums
+nums = [3, 12, 5, 6, 7, 8, 9, 11, 12, 14, 0, 1, 0, 0, 0, 0, 6]
+print(movingZeroes(nums))

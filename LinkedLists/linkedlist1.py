@@ -1,3 +1,4 @@
+'''
 # Creating a Sample Linked List : Practice.
 
 class Node:
@@ -22,3 +23,44 @@ while currentNode:
     print(currentNode.data, end=" --> ")
     currentNode = currentNode.next
 print("null")
+
+'''
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class linkedlist:
+    def __init__(self):
+        self.head = None
+        
+    def insert_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+        
+    def insert_begin(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        
+    def insert_after(self, prev_value, data):
+        curr = self.head
+        while curr and curr.data != prev_value:
+            curr = curr.next
+        if not curr:
+            print(f'Node with{prev_value} not found')
+            return
+        new_node = Node(data)
+        new_node.next = curr.next
+        curr.next = new_node
+        
+    def delete(self, key):
+        curr = self.head
+        

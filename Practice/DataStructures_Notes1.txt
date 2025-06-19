@@ -1,0 +1,56 @@
+
+### 🧩 **Types of Data Structures**
+
+#### 🔹 **1. Linear Data Structures**
+
+Elements are arranged sequentially. Each element is connected to its previous and next element.
+
+* **Array** – Fixed-size collection of elements of the same type.
+* **Linked List** – Each element (node) contains data + reference to next (and sometimes previous).
+* **Stack** – LIFO (Last In First Out): Think undo functionality.
+* **Queue** – FIFO (First In First Out): Think task scheduling.
+* **Deque** – Double-ended queue: insert/delete from both ends.
+
+---
+
+#### 🔹 **2. Non-Linear Data Structures**
+
+Elements are not arranged sequentially. They form a hierarchy or network.
+
+* **Tree** – Hierarchical structure (Binary Tree, BST, AVL, Heap, etc.)
+* **Graph** – Nodes (vertices) connected via edges; can be directed/undirected, weighted/unweighted.
+* **Trie** – Prefix tree, often used in search engines or autocomplete.
+
+---
+
+#### 🔹 **3. Hash-based Structures**
+
+Efficient for key-value mappings.
+
+* **Hash Table / Hash Map** – Key-value pairs with fast lookup using hashing.
+* **Hash Set** – Stores only keys, no duplicates.
+
+---
+
+#### 🔹 **4. Specialized / Advanced Structures**
+
+Used for optimization or specific scenarios.
+
+* **Heap** – Specialized tree for priority-based processing (min-heap, max-heap).
+* **Segment Tree / Fenwick Tree** – For range queries and updates.
+* **Disjoint Set (Union-Find)** – Useful in graph algorithms (like Kruskal’s).
+* **Bloom Filter** – Probabilistic structure for set membership testing.
+* **Skip List** – Layered linked lists for fast search.
+
+---
+
+### 📦 Classification Summary
+
+| Category   | Examples                             | Use-case                            |
+| ---------- | ------------------------------------ | ----------------------------------- |
+| Linear     | Array, Stack, Queue, Linked List     | Ordered data, basic processing      |
+| Non-Linear | Trees, Graphs, Trie                  | Hierarchical/Network-based data     |
+| Hash-Based | HashMap, HashSet                     | Fast lookup, key-value storage      |
+| Advanced   | Heap, Union-Find, Segment Tree, Trie | Specific performance-critical tasks |
+
+---

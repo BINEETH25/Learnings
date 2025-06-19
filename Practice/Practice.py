@@ -94,3 +94,60 @@ unsortedArr = [4, 2, 2, 6, 3, 3, 1, 6, 5, 2, 3]
 sortedArr = countingSort(unsortedArr)
 print("Sorted array:", sortedArr)
 '''
+'''
+# Radix Sort :  Sorts numbers digit by digit
+def Radixsort(arr):
+    max_val = max(arr)
+    exp = 1
+    
+    while max_val // exp > 0:
+        radix_Array = [[] for i in range(10)]
+        
+        while len(arr) > 0:
+            val = arr.pop()
+            radix_index = (val // exp) % 10
+            radix_Array[radix_index].append(val)
+            
+        for bucket in radix_Array:
+            while len(bucket)>0:
+                val = bucket.pop()
+                arr.append(val)
+        
+        exp *= 10
+myArray = [170, 45, 75, 90, 802, 24, 2, 66]
+Radixsort(myArray)
+print(myArray)
+'''
+def mergeSort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+    leftHalf = arr[:mid]
+    rightHalf = arr[mid:]
+
+    sortedLeft = mergeSort(leftHalf)
+    sortedRight = mergeSort(rightHalf)
+
+    return merge(sortedLeft, sortedRight)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+unsortedArr = [3, 7, 6, -10, 15, 23.5, 55, -13]
+sortedArr = mergeSort(unsortedArr)
+print("Sorted array:", sortedArr)
