@@ -21,7 +21,7 @@ class Graph:
         for vertex, data in enumerate(self.vertex_data):
             print(f'Vertex {vertex} : {data}')
     
-    # DFS : Depth first search traversal.
+    # DFS : Depth first search
     def dfs_util(self, v, visited):
         visited[v] = True
         print(self.vertex_data[v], end=' ')
@@ -34,7 +34,21 @@ class Graph:
         visited = [False] * self.size
         start_vertex = self.vertex_data.index(start_vertex_data)
         self.dfs_util(start_vertex, visited)
-
+    
+    def bfs(self, start_vertex_data):
+        queue = [self.vertex_data.index(start_vertex_data)]
+        visited = [False] * self.size
+        visited[queue[0]] = True
+                
+        while queue:
+            current_vertex = queue.pop(0)
+            print(self.vertex_data[current_vertex], end=' ')
+            
+            for i in range(self.size):
+                if self.adj_matrix[current_vertex][i] == 1 and not visited[i]:
+                    queue.append(i)
+                    visited[i] = True
+                    
 g = Graph(7)
 
 g.add_vertex_data(0, 'A')
@@ -59,3 +73,6 @@ g.print_graph()
 
 print("\nDepth First Search starting from vertex D:")
 g.dfs('D')
+
+print("\nBreadth First Search starting from vertex D:")
+g.bfs('D')
