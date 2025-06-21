@@ -29,7 +29,7 @@ nums[i] is either 0, 1, or 2.
 
 Follow up: Could you come up with a one-pass algorithm using only constant extra space?
 '''
-
+'''
 nums = [2, 0, 2, 1, 1, 0]
 
 n = len(nums)
@@ -41,3 +41,21 @@ for i in range(n - 1):
     nums[i], nums[min_index] = nums[min_index], nums[i]
 
 print(nums)
+'''
+def Sort_colors(nums):
+    n = len(nums)
+    low, mid, high = 0, 0, n - 1
+    while mid <= high:
+        if nums[mid] == 0:
+            nums[low], nums[mid] = nums[mid], nums[low]
+            mid += 1
+            low += 1
+        elif nums[mid] == 1:
+            mid += 1
+        else:
+            nums[mid], nums[high] = nums[high], nums[mid]
+            high -= 1
+    return nums
+
+nums = [2, 0, 2, 1, 1, 0]
+print(Sort_colors(nums))
